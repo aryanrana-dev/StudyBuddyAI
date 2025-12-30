@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Study Companion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section id="home-screen" class="screen active">
+        <div class="container">
+            <h1><i class="fa-solid fa-robot"></i> StudyBuddy AI</h1>
+            <p>Your intelligent companion for smarter learning.</p>
+            <div class="menu-grid">
+                <div class="card menu-option" onclick="navigateTo('learn-screen')">
+                    <i class="fa-solid fa-book-open"></i>
+                    <h3>Start Learning</h3>
+                    <p>Generate notes, quizzes, and mind maps.</p>
+                </div>
+                <div class="card menu-option" onclick="navigateTo('games-screen')">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <h3>Study Games</h3>
+                    <p>Take a break and sharpen your mind.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="learn-screen" class="screen">
+        <button class="back-btn" onclick="navigateTo('home-screen')"><i class="fa-solid fa-arrow-left"></i> Back</button>
+        <div class="container">
+            <h2>What do you want to learn today?</h2>
+            
+            <div class="input-group">
+                <input type="text" id="topicInput" placeholder="Enter your topic (e.g., Photosynthesis, Python Loops)...">
+            </div>
+
+            <h3>Select Difficulty Level (Choose 1)</h3>
+            <div class="selection-grid" id="level-options">
+                <div class="option-box level" data-value="Beginner">Beginner</div>
+                <div class="option-box level" data-value="Intermediate">Intermediate</div>
+                <div class="option-box level" data-value="Advanced">Advanced</div>
+            </div>
+
+            <h3>Select Content Types (Choose at least 1)</h3>
+            <div class="selection-grid" id="content-options">
+                <div class="option-box content" data-value="summary">Concise Summary</div>
+                <div class="option-box content" data-value="detailed">Detailed Explanation</div> <div class="option-box content" data-value="questions">Important Questions</div>
+                <div class="option-box content" data-value="mindmap">Mind Map</div>
+                <div class="option-box content" data-value="texamples">Technical Examples</div>
+                <div class="option-box content" data-value="rwexamples">Real-world Examples</div>
+                <div class="option-box content" data-value="steps">Step by step approach</div>
+            </div>
+
+            <button class="generate-btn" onclick="startGeneration()">Generate Study Material</button>
+        </div>
+    </section>
+
+    <section id="loading-screen" class="screen">
+        <div class="loading-container">
+            <div class="bot-icon"><i class="fa-solid fa-robot"></i></div>
+            
+            <div class="data-stream">
+                <span class="symbol">A</span>
+                <span class="symbol">∑</span>
+                <span class="symbol">?</span>
+                <span class="symbol">{ }</span>
+            </div>
+
+            <div class="brain-icon"><i class="fa-solid fa-brain"></i></div>
+            
+            <h3>Synthesizing Knowledge...</h3>
+        </div>
+    </section>
+
+    <section id="output-screen" class="screen">
+        <button class="back-btn" onclick="navigateTo('learn-screen')"><i class="fa-solid fa-arrow-left"></i> New Topic</button>
+        <div class="container wide-container">
+            <h1 id="output-title">Topic Name</h1>
+            <p id="output-level-badge">Level: Beginner</p>
+
+            <div class="output-grid" id="output-container">
+                </div>
+        </div>
+    </section>
+
+    <section id="games-screen" class="screen">
+        <button class="back-btn" onclick="navigateTo('home-screen')"><i class="fa-solid fa-arrow-left"></i> Back</button>
+        <div class="container">
+            <h2>Brain Games</h2>
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3>Flashcard Flip</h3>
+                    <p>Test your memory.</p>
+                    <button>Play Now</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-icon"><i class="fa-solid fa-keyboard"></i></div>
+                    <h3>Speed Typer</h3>
+                    <p>Type code fast!</p>
+                    <button>Play Now</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-icon"><i class="fa-solid fa-puzzle-piece"></i></div>
+                    <h3>Logic Puzzle</h3>
+                    <p>Solve the riddle.</p>
+                    <button>Play Now</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-icon"><i class="fa-solid fa-question"></i></div>
+                    <h3>Trivia Tower</h3>
+                    <p>Climb to the top.</p>
+                    <button>Play Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
